@@ -91,9 +91,8 @@ class SH1106:
             res(1)
             time.sleep_ms(20)
 
-
     def print(self, col, row, text=''):
-        self.text(text, col*FONT_SIZE, row*FONT_SIZE)
+        self.text(text, row*FONT_SIZE, col*FONT_SIZE)
         self.show()
 
     def clear_char(self, col, row, count):
