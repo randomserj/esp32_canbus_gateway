@@ -18,6 +18,9 @@ PREFIX_ERR = 'ERROR'
 PREFIX_DEBUG = 'DEBUG'
 PREFIXES = [PREFIX_INFO, PREFIX_WARN, PREFIX_ERR, PREFIX_DEBUG]
 
+WIFI_FILE = 'wifi'
+CAN_DEFAULT_SPEED = 500
+FONT = 8
 
 def debug_print(module, prefix, text):
     if module is not None and prefix in PREFIXES:

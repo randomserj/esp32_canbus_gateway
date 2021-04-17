@@ -1,20 +1,21 @@
 import gc
 import utime as time
-
 from machine import SoftI2C
-import canbus_trx as trx
-import wlan
-# import sh1106
 
-MODULE_NAME = 'MAIN'
-SEC = 1000
-CAN_DEFAULT_SPEED = 500
+import canbus_trx as trx
+import misc
+from periphery import WLAN, OLED
+
+
+def test():
+    oled.print('Ready...')
+    oled.print('AP: {}'.format(wifi.if_ap.ifconfig()[0]), 1)
+    sta_ip = wifi.up()
+    if sta_ip:
+        oled.print('STA: {}'.format(sta_ip[0]), 2)
+
 
 gc.collect()
-time.sleep_ms(SEC)
-wifi = wlan.WLAN()
-tja = trx.CanBusDevice(CAN_DEFAULT_SPEED)
-
-# oled = sh1106.SH1106_I2C(128, 64, SoftI2C(scl=PIN_I2C_SCL, sda=PIN_I2C_SDA))
-# oled.rotate(1)
-
+wifi = WLAN()
+tja = trx.CanBusDevice(misc.CAN_DEFAULT_SPEED)
+oled = OLED(SoftI2C(scl=misc.PIN_OLED_SCL, sda=misc.PIN_OLED_SDA))
