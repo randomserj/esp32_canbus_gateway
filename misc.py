@@ -19,9 +19,15 @@ PREFIX_DEBUG = 'DEBUG'
 PREFIXES = [PREFIX_INFO, PREFIX_WARN, PREFIX_ERR, PREFIX_DEBUG]
 
 WIFI_FILE = 'wifi'
+MASK = 0xff
+ACK = 0x55
+TERMINATE = 0xaa
 CAN_DEFAULT_SPEED = 500
 FONT = 8
 
+
+# TODO:
+# add debug option, rename to dprint
 def debug_print(module, prefix, text):
     if module is not None and prefix in PREFIXES:
         print('[{}]\t***\t{}\t***\t{}'.format(module, prefix, text))
